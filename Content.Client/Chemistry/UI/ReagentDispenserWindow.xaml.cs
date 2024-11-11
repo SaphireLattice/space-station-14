@@ -35,18 +35,18 @@ namespace Content.Client.Chemistry.UI
         /// Update the button grid of reagents which can be dispensed.
         /// </summary>
         /// <param name="inventory">Reagents which can be dispensed by this dispenser</param>
-        public void UpdateReagentsList(List<ReagentInventoryItem> inventory)
+        public void UpdateReagentsList(List<ReagentInventoryItem?> inventory)
         {
             if (ReagentList == null)
                 return;
 
             ReagentList.Children.Clear();
             //Sort inventory by reagentLabel
-            inventory.Sort((x, y) => x.DisplayName.CompareTo(y.DisplayName));
+            inventory.Sort((x, y) => x!.DisplayName.CompareTo(y!.DisplayName));
 
             foreach (var item in inventory)
             {
-                var card = new ReagentCardControl(item);
+                var card = new ReagentCardControl(item!);
                 card.OnPressed += OnDispenseReagentButtonPressed;
                 card.OnEjectButtonPressed += OnEjectJugButtonPressed;
                 ReagentList.Children.Add(card);

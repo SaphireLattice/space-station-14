@@ -61,6 +61,9 @@
   components:
   - type: ReagentDispenser
   - type: SolutionTransferMachine
+    storageWhitelist:
+      tags:
+      - ChemDispensable
     dispenserWhitelist:
       components:
       - FitsInDispenser

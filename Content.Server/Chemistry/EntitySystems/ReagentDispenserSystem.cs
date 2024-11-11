@@ -27,7 +27,6 @@ namespace Content.Server.Chemistry.EntitySystems
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
         [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SolutionTransferMachineSystem _transferMachineSystem = default!;
 
         public override void Initialize()

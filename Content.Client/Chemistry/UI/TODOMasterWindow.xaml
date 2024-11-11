@@ -1,0 +1,94 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                MinSize="800 600"
+                Title="{Loc 'chem-master-bound-user-interface-title'}">
+    <BoxContainer Orientation="Vertical">
+    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True" Margin="10 5" SeparationOverride="20">
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+            <!-- Input container info -->
+            <BoxContainer Orientation="Horizontal">
+                <Label Name="PrimaryName" Text="Primary container" />
+                <Label Name="PrimaryExtra" Text="" />
+                <Control HorizontalExpand="True" />
+                <Button MinSize="80 0" Name="PrimarySlotButton" Access="Public" Text="{Loc 'chem-master-window-eject-button'}" />
+            </BoxContainer>
+
+            <PanelContainer VerticalExpand="True" MinSize="0 200">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                </PanelContainer.PanelOverride>
+
+                <ScrollContainer HorizontalExpand="True" MinSize="0 200">
+                    <!-- Initially empty, when server sends state data this will have container contents and fill volume.-->
+                    <BoxContainer Name="PrimaryContainerInfo" Orientation="Vertical" Margin="5" HorizontalExpand="True">
+                        <Label Text="{Loc 'chem-master-window-no-container-loaded-text'}" />
+                    </BoxContainer>
+                </ScrollContainer>
+            </PanelContainer>
+
+            <BoxContainer Margin="10 4">
+                <Label Text="Store:" />
+                <Control HorizontalExpand="True" />
+                <BoxContainer Name="PrimaryStorageTransfer" />
+            </BoxContainer>
+
+            <!-- Padding -->
+            <Control MinSize="0 10" />
+
+            <!-- Input container info -->
+            <BoxContainer Orientation="Horizontal">
+                <Label Name="SecondaryName" Text="Secondary container" />
+                <Label Name="SecondaryExtra" Text="" />
+                <Control HorizontalExpand="True" />
+                <Button MinSize="80 0" Name="SecondarySlotButton" Access="Public" Text="{Loc 'chem-master-window-eject-button'}" />
+            </BoxContainer>
+
+            <PanelContainer VerticalExpand="True" MinSize="0 200">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                </PanelContainer.PanelOverride>
+
+                <ScrollContainer HorizontalExpand="True" MinSize="0 200">
+                    <!-- Initially empty, when server sends state data this will have container contents and fill volume.-->
+                    <BoxContainer Name="SecondaryContainerInfo" Orientation="Vertical" Margin="5" HorizontalExpand="True">
+                        <Label Text="{Loc 'chem-master-window-no-container-loaded-text'}" />
+                    </BoxContainer>
+                </ScrollContainer>
+            </PanelContainer>
+
+            <BoxContainer Margin="10 4">
+                <Label Text="Store:" />
+                <Control HorizontalExpand="True" />
+                <BoxContainer Name="SecondaryStorageTransfer" />
+            </BoxContainer>
+        </BoxContainer>
+
+        <BoxContainer Orientation="Vertical"  HorizontalExpand="True">
+            <Label Text="Storage" Margin="0 5" />
+
+            <LineEdit Name="Search" Margin="0 5" PlaceHolder="Search" />
+
+            <PanelContainer VerticalExpand="True" MinSize="0 200">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                </PanelContainer.PanelOverride>
+
+                <ScrollContainer HorizontalExpand="True" MinSize="0 200">
+                    <BoxContainer Name="StorageInfo" Orientation="Vertical" Margin="5" HorizontalExpand="True">
+                        <Label Text="{Loc 'chem-master-window-no-container-loaded-text'}" />
+                    </BoxContainer>
+                </ScrollContainer>
+            </PanelContainer>
+            <BoxContainer Margin="5 4">
+                <Label Text="Target:" />
+                <Control HorizontalExpand="True" />
+                <Button MinSize="80 0" Name="PrimarySelect" Access="Public" ToggleMode="True" StyleClasses="OpenRight" Text="Primary" />
+                <Button MinSize="80 0" Name="SecondarySelect" Access="Public" ToggleMode="True" StyleClasses="OpenLeft" Text="Secondary" />
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+    <Label Margin="10" Text="DRAFT VERSION - None of this UI is final!" />
+    </BoxContainer>
+</controls:FancyWindow>

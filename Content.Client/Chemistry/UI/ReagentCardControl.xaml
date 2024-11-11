@@ -23,6 +23,7 @@
                 </BoxContainer>
             </BoxContainer>
         </Button>
+        <BoxContainer Name="ExtraControls" />
         <Button Name="EjectButton"
                 StyleClasses="OpenLeft"
                 VerticalExpand="True"

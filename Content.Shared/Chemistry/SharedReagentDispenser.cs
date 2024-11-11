@@ -96,11 +96,11 @@ namespace Content.Shared.Chemistry
         /// <summary>
         /// A list of the reagents which this dispenser can dispense.
         /// </summary>
-        public readonly List<ReagentInventoryItem> Inventory;
+        public readonly List<ReagentInventoryItem?> Inventory;
 
         public readonly ReagentDispenserDispenseAmount SelectedDispenseAmount;
 
-        public ReagentDispenserBoundUserInterfaceState(ReagentInventoryItem? outputContainer, List<ReagentInventoryItem> inventory, ReagentDispenserDispenseAmount selectedDispenseAmount)
+        public ReagentDispenserBoundUserInterfaceState(ReagentInventoryItem? outputContainer, List<ReagentInventoryItem?> inventory, ReagentDispenserDispenseAmount selectedDispenseAmount)
         {
             OutputContainer = outputContainer;
             Inventory = inventory;

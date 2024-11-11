@@ -135,18 +135,20 @@ namespace Content.Server.Chemistry.EntitySystems
             return true;
         }
 
-        public List<ReagentInventoryItem> GetInventory(Entity<SolutionTransferMachineComponent?> machine, bool dispenserInventory, bool withContents = false, bool fullName = false)
+        public List<ReagentInventoryItem?> GetInventory(Entity<SolutionTransferMachineComponent?> machine, bool dispenserInventory, bool withContents = false, bool fullName = false, bool insertNulls = false)
         {
             if (!Resolve(machine, ref machine.Comp))
                 return [];
 
-            List<ReagentInventoryItem> inventory = [];
+            List<ReagentInventoryItem?> inventory = [];
 
             foreach (var storageSlotId in dispenserInventory ? machine.Comp.DispenserSlotIds : machine.Comp.StorageSlotIds)
             {
                 var info = GetSlotInfo(machine, storageSlotId, withContents, fullName);
                 if (info is not null)
                     inventory.Add(info);
+                else if (insertNulls)
+                    inventory.Add(null);
             }
 
             return inventory;
